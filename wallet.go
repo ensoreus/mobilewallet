@@ -94,6 +94,23 @@ func (lw *LibWallet) InitLoader() {
 	lw.loader = l
 }
 
+type TransactionListenerStruct struct{}
+
+func  (TransactionListenerStruct) OnTransaction(transaction string){}
+func  (TransactionListenerStruct) OnTransactionRefresh(){}
+
+func CreateTransactionListener() *TransactionListenerStruct{
+	return &TransactionListenerStruct{}
+}
+
+type TransactionBlockListenerStruct struct{}
+
+func (TransactionBlockListenerStruct) OnBlockNotificationError(err error) {}
+
+func CreateTransactionsBlockListener() *TransactionBlockListenerStruct {
+    return  &TransactionBlockListenerStruct{}
+}
+
 func (lw *LibWallet) CreateWallet(passphrase string, seedMnemonic string) error {
 	fmt.Println("Creating wallet")
 
