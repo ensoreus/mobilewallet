@@ -95,20 +95,22 @@ func (lw *LibWallet) InitLoader() {
 }
 
 type TransactionListenerStruct struct{}
-
 func  (TransactionListenerStruct) OnTransaction(transaction string){}
 func  (TransactionListenerStruct) OnTransactionRefresh(){}
-
 func CreateTransactionListener() *TransactionListenerStruct{
 	return &TransactionListenerStruct{}
 }
 
 type TransactionBlockListenerStruct struct{}
-
 func (TransactionBlockListenerStruct) OnBlockNotificationError(err error) {}
-
 func CreateTransactionsBlockListener() *TransactionBlockListenerStruct {
     return  &TransactionBlockListenerStruct{}
+}
+
+type GetTransactionResponseStruct struct{}
+func (GetTransactionResponseStruct) OnResult(json string)
+func CreateGetTransactionResponse() *GetTransactionResponseStruct{
+	return &GetTransactionResponseStruct{}
 }
 
 func (lw *LibWallet) CreateWallet(passphrase string, seedMnemonic string) error {
