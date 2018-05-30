@@ -108,7 +108,7 @@ func CreateTransactionsBlockListener() *TransactionBlockListenerStruct {
 }
 
 type GetTransactionResponseStruct struct{}
-func (GetTransactionResponseStruct) OnResult(json string)
+func (GetTransactionResponseStruct) OnResult(json string){}
 func CreateGetTransactionResponse() *GetTransactionResponseStruct{
 	return &GetTransactionResponseStruct{}
 }
